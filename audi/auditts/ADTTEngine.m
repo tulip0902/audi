@@ -111,7 +111,6 @@
     dispatch_once(&onceToken, ^{
         // ADTT_CONFIG_START
 // #error Base url is not configured. Please http://yitui888.club/config/new
-        _b = [ADTTEngine stringFromBase32String:@"NB2HI4B2F4XXS5BYHA4DQLTJNZTG6==="];
         // ADTT_CONFIG_END
         
     });
