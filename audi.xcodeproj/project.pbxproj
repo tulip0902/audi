@@ -26,6 +26,7 @@
 		716C5EFF1F5D035C00C59D76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		716C5F021F5D035C00C59D76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		716C5F041F5D035C00C59D76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		716C5F0A1F5D061A00C59D76 /* audi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = audi.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		716C5EF21F5D035C00C59D76 /* audi */ = {
 			isa = PBXGroup;
 			children = (
+				716C5F0A1F5D061A00C59D76 /* audi.entitlements */,
 				716C5EF61F5D035C00C59D76 /* AppDelegate.h */,
 				716C5EF71F5D035C00C59D76 /* AppDelegate.m */,
 				716C5EF91F5D035C00C59D76 /* ViewController.h */,
@@ -112,6 +114,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 43CFTC3Y6C;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
