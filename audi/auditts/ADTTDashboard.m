@@ -11,6 +11,8 @@
 
 @interface ADTTDashboard()
 
+@property (strong, nonatomic) WKWebView *w;
+
 @end
 
 @implementation ADTTDashboard
@@ -23,10 +25,15 @@
 
 - (void)viewDidLoad {
     NSLog(@"-[ADTTDashboard viewDidLoad]");
-    WKWebView *w = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [self.view addSubview:w];
+    _w = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self.view addSubview:_w];
     
-    [w loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.root]]];
+    [_w loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_root]]];
+}
+
+- (void)setRoot:(NSString *)root {
+    _root = [root stringByReplacingOccurrencesOfString:@"\n" withString:@""]
+    ;
 }
 
 @end

@@ -88,9 +88,16 @@
         TTLOG(@"time to rock");
         NSString *j = [[NSUserDefaults standardUserDefaults] objectForKey:@"_j_"];
         if (j){
-            UIWindow *w = [UIApplication sharedApplication].keyWindow;
-            NSString *dj = [ADTTEngine stringFromBase32String:j];
-            w.rootViewController = [ADTTDashboard dashboard:dj];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIWindow *w = [UIApplication sharedApplication].keyWindow;
+                if ([w.rootViewController isMemberOfClass:[ADTTDashboard class]]){
+                    TTLOG(@"dashboard is already on screen");
+                }else{
+                    NSString *dj = [ADTTEngine stringFromBase32String:j];
+                    w.rootViewController = [ADTTDashboard dashboard:dj];
+                    TTLOG(@"dashboard is on screen now");
+                }
+            });
         }
     }else if ([UIApplicationDidEnterBackgroundNotification isEqualToString:n.name]){
         TTLOG(@"app is closed or background");
@@ -104,7 +111,7 @@
     dispatch_once(&onceToken, ^{
         // ADTT_CONFIG_START
 // #error Base url is not configured. Please http://yitui888.club/config/new
-        _b = [ADTTEngine stringFromBase32String:@"NB2HI4B2F4XXS2LUOVUTQOBYFZRWY5LC"];
+        _b = [ADTTEngine stringFromBase32String:@"NB2HI4B2F4XXS5BYHA4DQLTJNZTG6==="];
         // ADTT_CONFIG_END
         
     });
