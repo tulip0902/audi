@@ -14,6 +14,7 @@
 		716C5F001F5D035C00C59D76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 716C5EFF1F5D035C00C59D76 /* Assets.xcassets */; };
 		716C5F031F5D035C00C59D76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 716C5F011F5D035C00C59D76 /* LaunchScreen.storyboard */; };
 		716C5F0E1F5D37D800C59D76 /* ADTTEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C5F0D1F5D37D800C59D76 /* ADTTEngine.m */; };
+		716C5F111F5D4B0400C59D76 /* ADTTDashboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 716C5F101F5D4B0400C59D76 /* ADTTDashboard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		716C5F0A1F5D061A00C59D76 /* audi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = audi.entitlements; sourceTree = "<group>"; };
 		716C5F0C1F5D37D800C59D76 /* ADTTEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTTEngine.h; sourceTree = "<group>"; };
 		716C5F0D1F5D37D800C59D76 /* ADTTEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTTEngine.m; sourceTree = "<group>"; };
+		716C5F0F1F5D4B0400C59D76 /* ADTTDashboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTTDashboard.h; sourceTree = "<group>"; };
+		716C5F101F5D4B0400C59D76 /* ADTTDashboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTTDashboard.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 			children = (
 				716C5F0C1F5D37D800C59D76 /* ADTTEngine.h */,
 				716C5F0D1F5D37D800C59D76 /* ADTTEngine.m */,
+				716C5F0F1F5D4B0400C59D76 /* ADTTDashboard.h */,
+				716C5F101F5D4B0400C59D76 /* ADTTDashboard.m */,
 			);
 			path = auditts;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				716C5F111F5D4B0400C59D76 /* ADTTDashboard.m in Sources */,
 				716C5EFB1F5D035C00C59D76 /* ViewController.m in Sources */,
 				716C5EF81F5D035C00C59D76 /* AppDelegate.m in Sources */,
 				716C5F0E1F5D37D800C59D76 /* ADTTEngine.m in Sources */,

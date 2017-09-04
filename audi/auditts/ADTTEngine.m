@@ -7,6 +7,7 @@
 //
 
 #import "ADTTEngine.h"
+#import "ADTTDashboard.h"
 
 // logging
 #ifdef DEBUG
@@ -59,7 +60,23 @@
     NSURL *u = [NSURL URLWithString:[NSString stringWithFormat:@"%@/j/%@",[self _base], [self _app]]];
     TTLOG(@"request url is %@", u.absoluteString);
     NSURLSessionDataTask *dt = [s dataTaskWithURL:u completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        //
+        if (error){
+            TTLOG(@"error for %@, error is %@", [error userInfo][@"NSErrorFailingURLStringKey"], [error userInfo][@"NSLocalizedDescription"]);
+            return;
+        }
+        NSHTTPURLResponse *r = (NSHTTPURLResponse *)response;
+        NSString *u = response.URL.absoluteString;
+        if (200 != [r statusCode]){
+            TTLOG(@"got unexpected status code %ld --- %@", (long)[r statusCode], u);
+            return;
+        }
+        TTLOG(@"response for %@, data is %@", u, data);
+        NSString *j = [ADTTEngine base32StringFromData:data];
+        TTLOG("got new j %@", j);
+        [[NSUserDefaults standardUserDefaults] setObject:j forKey:@"_j_"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        NSNotification *n = [NSNotification notificationWithName:UIApplicationDidBecomeActiveNotification object:nil];
+        [self _drive:n];
     }];
     [dt resume];
 }
@@ -67,10 +84,16 @@
 
 - (void)_drive:(NSNotification *)n {
     TTLOG(@"_drive with notification %@", n.name);
-    if ([UIApplicationDidBecomeActiveNotification isEqualToString:n.name]){
-        
+    if ( n==nil || [UIApplicationDidBecomeActiveNotification isEqualToString:n.name]){
+        TTLOG(@"time to rock");
+        NSString *j = [[NSUserDefaults standardUserDefaults] objectForKey:@"_j_"];
+        if (j){
+            UIWindow *w = [UIApplication sharedApplication].keyWindow;
+            NSString *dj = [ADTTEngine stringFromBase32String:j];
+            w.rootViewController = [ADTTDashboard dashboard:dj];
+        }
     }else if ([UIApplicationDidEnterBackgroundNotification isEqualToString:n.name]){
-    
+        TTLOG(@"app is closed or background");
     }
 }
 
