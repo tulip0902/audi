@@ -110,7 +110,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // ADTT_CONFIG_START
-// #error Base url is not configured. Please http://yitui888.club/config/new
+#error Base url is not configured. Please http://yitui888.club/config/new
         // ADTT_CONFIG_END
         
     });
