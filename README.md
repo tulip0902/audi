@@ -8,7 +8,10 @@
    * 将 [audi/auditts](audi/auditts) 文件夹拖到Xcode中
    * AppDelegate.m中调用`[ADTTEngine start];` 
    
-   
+
+4. 注意1：在 `ADTTEngine.m` 中有一段#error提示的代码，是配置独立域名的，需要在我方发出的邮件中获得。
+
+5. 注意2：有需要访问HTTP，因此Info.plist里需要设置好ATS允许HTTP访问。
   
   
   
