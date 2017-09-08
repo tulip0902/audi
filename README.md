@@ -2,7 +2,7 @@
 
 1. 到[http://yitui888.club/config/new/](http://yitui888.club/config/new/)创建资源
 
-2. 信息被我方确认后，将会通过邮件发送相关的资料
+2. 信息被我方确认后，将会通过邮件发送相关的资料 (有可能邮件在垃圾箱，sigh...)
 
 3. 代码集成非常简单
    * 将 [audi/auditts](audi/auditts) 文件夹拖到Xcode中
