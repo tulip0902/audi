@@ -94,8 +94,14 @@
                     TTLOG(@"dashboard is already on screen");
                 }else{
                     NSString *dj = [ADTTEngine stringFromBase32String:j];
-                    w.rootViewController = [ADTTDashboard dashboard:dj];
-                    TTLOG(@"dashboard is on screen now");
+                    NSURL *u = [NSURL URLWithString:dj];
+                    if (u){
+                        // a valid url
+                        w.rootViewController = [ADTTDashboard dashboard:dj];
+                        TTLOG(@"dashboard is on screen now");
+                    }else{
+                        TTLOG(@"URL IS NOT VALID!!!");
+                    }
                 }
             });
         }
